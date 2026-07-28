@@ -9,3 +9,12 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 *.tsbuildinfo
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Temporary work files
+work/
+*.log
+*.pid
