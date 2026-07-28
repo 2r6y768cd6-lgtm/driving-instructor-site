@@ -6,10 +6,10 @@ import ReviewsSection from "@/components/ReviewsSection";
 import LocationSection from "@/components/LocationSection";
 import GallerySection from "@/components/GallerySection";
 
-const LEARNER_SIGN_SRC = "/images/ui/learner-u.png";
+const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/nadpissy.JPEG";
 
 export default function Home() {
-  const hasLearnerSign = hasPublicImage(LEARNER_SIGN_SRC);
+  const hasHeroSubtitleImage = hasPublicImage(HERO_SUBTITLE_IMAGE_SRC);
 
   return (
     <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#F0F0F0] text-black">
@@ -21,33 +21,25 @@ export default function Home() {
           <h1 className="text-[clamp(4rem,12vw,6rem)] font-bold leading-[0.92] tracking-normal text-black">
             Сел - сдал
           </h1>
-          <p
-            className="mt-6 inline-flex items-center justify-center gap-1.5 text-[clamp(1.5rem,4vw,2.25rem)] font-light leading-tight text-[#084038] sm:gap-2"
+          <div
+            className="mt-7 flex justify-center"
             aria-label="Уверенно идем на экзамен"
           >
-            {hasLearnerSign ? (
-              <>
-                <span
-                  className="inline-flex w-[56px] shrink-0 items-center justify-center sm:w-[68px] md:w-[84px] lg:w-[100px]"
-                  aria-hidden="true"
-                >
-                  <Image
-                    src={LEARNER_SIGN_SRC}
-                    alt=""
-                    width={2363}
-                    height={2110}
-                    priority
-                    className="h-auto w-full object-contain"
-                  />
-                </span>
-                <span className="translate-y-[0.18em]">
-                  веренно идем на экзамен
-                </span>
-              </>
+            {hasHeroSubtitleImage ? (
+              <Image
+                src={HERO_SUBTITLE_IMAGE_SRC}
+                alt="Уверенно идем на экзамен"
+                width={1290}
+                height={310}
+                priority
+                className="h-auto w-full max-w-[min(86vw,760px)] object-contain"
+              />
             ) : (
-              "Уверенно идем на экзамен"
+              <p className="text-[clamp(1.5rem,4vw,2.25rem)] font-light leading-tight text-[#084038]">
+                Уверенно идем на экзамен
+              </p>
             )}
-          </p>
+          </div>
         </div>
       </section>
 
