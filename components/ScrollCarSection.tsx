@@ -42,7 +42,7 @@ const cars: Car[] = [
   {
     id: "car-2",
     // Ожидаемый файл: public/images/car-2.png
-    carSrc: "/images/car-2.png",
+    carSrc: "/images/car-2.png?v=2",
     width: 1448,
     height: 1086,
     alt: "Белый учебный автомобиль инструктора Виктории",
@@ -106,7 +106,6 @@ const victoriaBookingModalContent: BookingModalContent = {
   links: [
     { label: "Telegram", href: "https://t.me/zlondix" },
     { label: "WhatsApp", href: "https://wa.me/message/OGD7PZZ5CXQKD1" },
-    { label: "Max", disabled: true },
   ],
 };
 
@@ -148,6 +147,7 @@ function CarImage({
           sizes="(min-width: 1280px) 1120px, 100vw"
           className="relative h-auto w-full object-contain"
           priority={car.priority}
+          unoptimized={car.id === "car-2"}
           onError={() => setHasImageError(true)}
           onLoad={onLoad}
         />

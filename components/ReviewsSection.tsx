@@ -39,10 +39,41 @@ const reviewScreenshots: ReviewScreenshot[] = [
     width: 1289,
     height: 582,
   },
+  {
+    id: "review-5",
+    image: "/images/reviews/review-5.jpg",
+    alt: "Скриншот отзыва ученика об уроках вождения",
+    width: 1117,
+    height: 720,
+  },
+  {
+    id: "review-6",
+    image: "/images/reviews/review-6.jpg",
+    alt: "Скриншот отзыва об обучении вождению",
+    width: 1116,
+    height: 866,
+  },
+  {
+    id: "review-7",
+    image: "/images/reviews/review-7.jpg",
+    alt: "Скриншот отзыва ученика с внешней площадки",
+    width: 1107,
+    height: 976,
+  },
+  {
+    id: "review-8",
+    image: "/images/reviews/review-8.jpg",
+    alt: "Скриншот отзыва об уроках вождения на МКПП",
+    width: 1110,
+    height: 613,
+  },
 ];
 
-const avitoReviewsUrl =
+const victoriaAvitoReviewsUrl =
   "https://m.avito.ru/brands/03f2bca8b65fc7909e068d565019096e/all?src=sharing&sellerId=00db80240fee5fd2608a30b21eed8639#open-reviews-list";
+
+const sergeyAvitoReviewsUrl =
+  "https://www.avito.ru/naberezhnye_chelny/predlozheniya_uslug/instruktor_po_vozhdeniyu_avtoinstruktor_lada_mkpp_7949770465?context=H4sIAAAAAAAA_wE_AMD_YToyOntzOjEzOiJsb2NhbFByaW9yaXR5IjtiOjA7czoxOiJ4IjtzOjE2OiJPWGFTdUs4MDBHTXpOMWtFIjt9q2qnYD8AAAA#open-reviews-list";
 
 function publicImageExists(imagePath: string) {
   return existsSync(path.join(process.cwd(), "public", imagePath));
@@ -90,7 +121,7 @@ export default function ReviewsSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#21C45A]">
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#084038]">
             Отзывы
           </p>
           <h2
@@ -120,14 +151,22 @@ export default function ReviewsSection() {
             </p>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 flex flex-col items-center gap-4">
             <a
-              href={avitoReviewsUrl}
+              href={victoriaAvitoReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#084038] px-6 text-center text-sm font-bold !text-white transition visited:!text-white hover:bg-[#06342e] hover:!text-white focus:!text-white focus:outline-none focus:ring-2 focus:ring-[#21C45A] focus:ring-offset-2 active:!text-white sm:w-auto"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#084038] px-6 text-center text-sm font-bold !text-white transition visited:!text-white hover:bg-[#06342e] hover:!text-white focus:!text-white focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 active:!text-white sm:w-[300px]"
             >
-              Смотреть отзывы на Avito
+              Смотреть отзывы Виктории
+            </a>
+            <a
+              href={sergeyAvitoReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#084038] px-6 text-center text-sm font-bold !text-white transition visited:!text-white hover:bg-[#06342e] hover:!text-white focus:!text-white focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 active:!text-white sm:w-[300px]"
+            >
+              Смотреть отзывы Сергея
             </a>
           </div>
         </div>

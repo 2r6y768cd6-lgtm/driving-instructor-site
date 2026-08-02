@@ -55,7 +55,7 @@ export default function GallerySection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#21C45A]">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#084038]">
             Галерея
           </p>
           <h2

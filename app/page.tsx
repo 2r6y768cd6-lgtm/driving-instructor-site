@@ -1,12 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
+import Link from "next/link";
 import ScrollCarSection from "@/components/ScrollCarSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import LocationSection from "@/components/LocationSection";
 import GallerySection from "@/components/GallerySection";
 
-const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/nadpissy.JPEG";
+const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/yveren.png?v=6";
 
 export default function Home() {
   const hasHeroSubtitleImage = hasPublicImage(HERO_SUBTITLE_IMAGE_SRC);
@@ -21,18 +22,16 @@ export default function Home() {
           <h1 className="text-[clamp(4rem,12vw,6rem)] font-bold leading-[0.92] tracking-normal text-black">
             Сел - сдал
           </h1>
-          <div
-            className="mt-7 flex justify-center"
-            aria-label="Уверенно идем на экзамен"
-          >
+          <div className="mt-7 flex justify-center">
             {hasHeroSubtitleImage ? (
               <Image
                 src={HERO_SUBTITLE_IMAGE_SRC}
                 alt="Уверенно идем на экзамен"
-                width={1290}
-                height={310}
+                width={1337}
+                height={328}
                 priority
-                className="h-auto w-full max-w-[min(86vw,760px)] object-contain"
+                unoptimized
+                className="mx-auto h-auto w-[78.2vw] max-w-[765px] object-contain"
               />
             ) : (
               <p className="text-[clamp(1.5rem,4vw,2.25rem)] font-light leading-tight text-[#084038]">
@@ -47,12 +46,21 @@ export default function Home() {
       <ReviewsSection />
       <LocationSection />
       <GallerySection />
+      <footer className="w-full bg-[#F0F0F0] px-5 pb-8 pt-2 text-center text-sm text-black/56 sm:px-8 lg:px-12">
+        <Link
+          href="/legal"
+          className="inline-flex min-h-11 items-center justify-center rounded-full px-4 font-semibold text-[#084038] transition hover:text-black focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2"
+        >
+          Правовая информация
+        </Link>
+      </footer>
     </main>
   );
 }
 
 function hasPublicImage(src: string) {
-  const normalizedSrc = src.startsWith("/") ? src.slice(1) : src;
+  const publicSrc = src.split("?", 1)[0];
+  const normalizedSrc = publicSrc.startsWith("/") ? publicSrc.slice(1) : publicSrc;
   const imagePath = path.join(process.cwd(), "public", normalizedSrc);
 
   return fs.existsSync(imagePath);

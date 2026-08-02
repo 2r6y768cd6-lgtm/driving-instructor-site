@@ -16,7 +16,7 @@ export default function LocationSection() {
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#21C45A]">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#084038]">
             Локация
           </p>
           <h2
@@ -33,7 +33,7 @@ export default function LocationSection() {
 
         <div className="grid gap-6 rounded-[2rem] border border-[#084038]/10 bg-white p-5 shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:p-7 lg:grid-cols-[minmax(280px,0.82fr)_minmax(0,1.18fr)] lg:items-center">
           <div className="p-1 sm:p-3">
-            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#21C45A]">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#084038]">
               Точка встречи для занятий по вождению
             </p>
             <h3 className="text-2xl font-semibold text-black">
@@ -48,7 +48,7 @@ export default function LocationSection() {
               href={TWO_GIS_LOCATION_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#084038] px-6 text-sm font-bold !text-white transition visited:!text-white hover:bg-[#06342e] hover:!text-white focus:!text-white focus:outline-none focus:ring-2 focus:ring-[#21C45A] focus:ring-offset-2 active:!text-white sm:w-auto"
+              className="mt-7 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#084038] px-6 text-sm font-bold !text-white transition visited:!text-white hover:bg-[#06342e] hover:!text-white focus:!text-white focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 active:!text-white sm:w-auto"
             >
               Открыть в 2ГИС
             </a>

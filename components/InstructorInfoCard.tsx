@@ -28,11 +28,14 @@ export default function InstructorInfoCard({
       className="pointer-events-auto relative z-20 mx-auto w-full max-w-xl rounded-[2rem] border border-[#084038]/10 bg-white p-6 text-black shadow-[0_24px_70px_rgba(0,0,0,0.08)] sm:p-8"
     >
       <div className="flex items-center gap-4">
-        <div className="flex size-14 shrink-0 items-center justify-center rounded-full border border-[#084038]/15 bg-[#F0F0F0] text-xl font-semibold text-[#084038]">
+        <div
+          aria-hidden="true"
+          className="flex size-14 shrink-0 items-center justify-center rounded-full border border-[#084038]/15 bg-[#F0F0F0] text-xl font-semibold text-[#084038]"
+        >
           {instructor.initials}
         </div>
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#21C45A]">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#084038]">
             {instructor.label}
           </p>
           <h2 className="mt-1 text-3xl font-semibold leading-tight text-[#084038]">
@@ -72,7 +75,7 @@ export default function InstructorInfoCard({
         type="button"
         onClick={handleBookClick}
         aria-haspopup="dialog"
-        className="pointer-events-auto relative z-30 mt-7 inline-flex min-h-12 w-full cursor-pointer touch-manipulation select-none items-center justify-center rounded-full bg-[#084038] px-6 text-sm font-bold text-white transition hover:bg-[#06342e] focus:outline-none focus:ring-2 focus:ring-[#21C45A] focus:ring-offset-2"
+        className="pointer-events-auto relative z-30 mt-7 inline-flex min-h-12 w-full cursor-pointer touch-manipulation select-none items-center justify-center rounded-full bg-[#084038] px-6 text-sm font-bold text-white transition hover:bg-[#06342e] focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2"
       >
         Записаться
       </button>
