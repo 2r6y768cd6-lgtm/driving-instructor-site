@@ -53,6 +53,9 @@ export default function Home() {
         >
           Правовая информация
         </Link>
+        <p className="mt-2 text-base font-medium text-black/70">
+          г. Набережные Челны
+        </p>
       </footer>
     </main>
   );
