@@ -1,10 +1,38 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const LEGAL_TITLE = "Правовая информация | Сел — сдал";
+const LEGAL_DESCRIPTION =
+  "Правовая информация об услугах частных уроков вождения, оплате, конфиденциальности и ограничении гарантий.";
+
 export const metadata: Metadata = {
-  title: "Правовая информация | Сел - сдал",
-  description:
-    "Правовая информация об услугах частных уроков вождения, оплате, конфиденциальности и ограничении гарантий.",
+  title: "Правовая информация",
+  description: LEGAL_DESCRIPTION,
+  alternates: {
+    canonical: "/legal",
+  },
+  openGraph: {
+    title: LEGAL_TITLE,
+    description: LEGAL_DESCRIPTION,
+    type: "website",
+    url: "/legal",
+    siteName: "Сел — сдал",
+    locale: "ru_RU",
+    images: [
+      {
+        url: "/images/gallery/gallery-2.PNG",
+        width: 1448,
+        height: 1086,
+        alt: "Учебные автомобили инструкторов «Сел — сдал»",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: LEGAL_TITLE,
+    description: LEGAL_DESCRIPTION,
+    images: ["/images/gallery/gallery-2.PNG"],
+  },
 };
 
 const legalSections = [

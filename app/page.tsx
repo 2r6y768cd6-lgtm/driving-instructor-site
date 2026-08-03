@@ -8,12 +8,68 @@ import LocationSection from "@/components/LocationSection";
 import GallerySection from "@/components/GallerySection";
 
 const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/yveren.png?v=6";
+const SITE_URL = "https://www.selsdal.ru";
+
+const drivingSchoolSchema = {
+  "@context": "https://schema.org",
+  "@type": "DrivingSchool",
+  "@id": `${SITE_URL}/#driving-school`,
+  name: "Сел — сдал",
+  url: SITE_URL,
+  image: `${SITE_URL}/images/gallery/gallery-2.PNG`,
+  description:
+    "Индивидуальные уроки вождения на МКПП и подготовка к экзамену на категорию B в Набережных Челнах.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Набережные Челны",
+    addressRegion: "Республика Татарстан",
+    addressCountry: "RU",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Набережные Челны",
+  },
+  employee: [
+    {
+      "@type": "Person",
+      name: "Сергей",
+      jobTitle: "Инструктор по вождению",
+    },
+    {
+      "@type": "Person",
+      name: "Виктория",
+      jobTitle: "Инструктор по вождению",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Уроки вождения",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Индивидуальные занятия по вождению на МКПП",
+          serviceType: "Обучение вождению и подготовка к экзамену категории B",
+          areaServed: "Набережные Челны",
+        },
+      },
+    ],
+  },
+  sameAs: ["https://2gis.ru/nabchelny/geo/4082443724259332"],
+};
 
 export default function Home() {
   const hasHeroSubtitleImage = hasPublicImage(HERO_SUBTITLE_IMAGE_SRC);
 
   return (
     <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#F0F0F0] text-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(drivingSchoolSchema).replace(/</g, "\\u003c"),
+        }}
+      />
       <section
         id="home"
         className="flex min-h-[60svh] items-center justify-center bg-[#F0F0F0] px-5 py-20 text-center sm:min-h-[68svh] sm:px-8 lg:min-h-[70svh] lg:px-12"
