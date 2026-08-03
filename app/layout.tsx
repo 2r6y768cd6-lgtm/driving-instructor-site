@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const SITE_URL = "https://www.selsdal.ru";
+const GOOGLE_TAG_ID = "G-EKWS104RCL";
 const SITE_TITLE = "Автоинструктор в Набережных Челнах | Сел — сдал";
 const SITE_DESCRIPTION =
   "Индивидуальные уроки вождения на МКПП в Набережных Челнах: город, парковка, манёвры и подготовка к экзамену на категорию B.";
@@ -70,6 +71,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GOOGLE_TAG_ID}');
+            `,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

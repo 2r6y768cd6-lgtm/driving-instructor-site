@@ -5,11 +5,15 @@ const isDevelopment = process.env.NODE_ENV !== "production";
 const scriptSources = [
   "'self'",
   "'unsafe-inline'",
+  "https://www.googletagmanager.com",
   ...(isDevelopment ? ["'unsafe-eval'"] : []),
 ];
 
 const connectSources = [
   "'self'",
+  "https://*.google-analytics.com",
+  "https://*.analytics.google.com",
+  "https://*.googletagmanager.com",
   ...(isDevelopment
     ? ["ws://localhost:*", "ws://127.0.0.1:*", "ws://0.0.0.0:*"]
     : []),
@@ -23,7 +27,7 @@ const contentSecurityPolicy = [
   "form-action 'self'",
   `script-src ${scriptSources.join(" ")}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
   "font-src 'self' data:",
   `connect-src ${connectSources.join(" ")}`,
   "media-src 'self'",
