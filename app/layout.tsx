@@ -3,6 +3,7 @@ import "./globals.css";
 
 const SITE_URL = "https://www.selsdal.ru";
 const GOOGLE_TAG_ID = "G-EKWS104RCL";
+const YANDEX_METRIKA_ID = 111278232;
 const SITE_TITLE = "Автоинструктор в Набережных Челнах | Сел — сдал";
 const SITE_DESCRIPTION =
   "Индивидуальные уроки вождения на МКПП в Набережных Челнах: город, парковка, манёвры и подготовка к экзамену на категорию B.";
@@ -87,7 +88,33 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(m,e,t,r,i,k,a){
+                  m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                  m[i].l=1*new Date();
+                  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+              })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=${YANDEX_METRIKA_ID}', 'ym');
+
+              ym(${YANDEX_METRIKA_ID}, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+            `,
+          }}
+        />
+        <noscript>
+          <div>
+            <img
+              src={`https://mc.yandex.ru/watch/${YANDEX_METRIKA_ID}`}
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
+          </div>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }
