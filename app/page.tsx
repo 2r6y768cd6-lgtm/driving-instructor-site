@@ -1,5 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollCarSection from "@/components/ScrollCarSection";
@@ -11,8 +9,7 @@ import ExamRoutesSection from "@/components/ExamRoutesSection";
 import PddSection from "@/components/PddSection";
 import FaqSection from "@/components/FaqSection";
 
-const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/yveren.png?v=6";
-const LOGO_IMAGE_SRC = "/images/logotip.png";
+const HERO_IMAGE_SRC = "/images/ui/logotip_yveren.png";
 const SITE_URL = "https://www.selsdal.ru";
 
 const drivingSchoolSchema = {
@@ -65,8 +62,6 @@ const drivingSchoolSchema = {
 };
 
 export default function Home() {
-  const hasHeroSubtitleImage = hasPublicImage(HERO_SUBTITLE_IMAGE_SRC);
-
   return (
     <main className="min-h-screen w-full max-w-full overflow-x-hidden bg-[#F0F0F0] text-black">
       <script
@@ -81,33 +76,15 @@ export default function Home() {
       >
         <div className="mx-auto max-w-5xl">
           <h1 className="sr-only">Сел — сдал</h1>
-          <div className="relative mx-auto aspect-[5/4] w-[min(96vw,564px)] overflow-hidden">
+          <div className="relative mx-auto aspect-[11/10] w-[min(96vw,700px)] overflow-hidden">
             <Image
-              src={LOGO_IMAGE_SRC}
-              alt=""
-              aria-hidden="true"
+              src={HERO_IMAGE_SRC}
+              alt="Сел — сдал. Автоинструктор в Набережных Челнах. Уверенно идём на экзамен"
               fill
               priority
-              sizes="(min-width: 640px) 564px, 96vw"
-              className="scale-110 object-cover"
+              sizes="(min-width: 640px) 700px, 96vw"
+              className="object-cover"
             />
-          </div>
-          <div className="mt-7 flex justify-center">
-            {hasHeroSubtitleImage ? (
-              <Image
-                src={HERO_SUBTITLE_IMAGE_SRC}
-                alt="Уверенно идем на экзамен"
-                width={1337}
-                height={328}
-                priority
-                unoptimized
-                className="mx-auto h-auto w-[78.2vw] max-w-[765px] object-contain"
-              />
-            ) : (
-              <p className="text-[clamp(1.5rem,4vw,2.25rem)] font-light leading-tight text-[#084038]">
-                Уверенно идем на экзамен
-              </p>
-            )}
           </div>
         </div>
       </section>
@@ -133,12 +110,4 @@ export default function Home() {
       </footer>
     </main>
   );
-}
-
-function hasPublicImage(src: string) {
-  const publicSrc = src.split("?", 1)[0];
-  const normalizedSrc = publicSrc.startsWith("/") ? publicSrc.slice(1) : publicSrc;
-  const imagePath = path.join(process.cwd(), "public", normalizedSrc);
-
-  return fs.existsSync(imagePath);
 }
