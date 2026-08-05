@@ -75,10 +75,21 @@ export default function FaqSection() {
   const [openItemId, setOpenItemId] = useState<string | null>(faqItems[0].id);
   const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
 
+  function toggleItem(itemId: string) {
+    setOpenItemId((currentId) => (currentId === itemId ? null : itemId));
+  }
+
   function handleKeyDown(
     event: ReactKeyboardEvent<HTMLButtonElement>,
     index: number,
+    itemId: string,
   ) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleItem(itemId);
+      return;
+    }
+
     let nextIndex: number | null = null;
 
     if (event.key === "ArrowDown") {
@@ -136,12 +147,8 @@ export default function FaqSection() {
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={answerId}
-                    onClick={() =>
-                      setOpenItemId((currentId) =>
-                        currentId === item.id ? null : item.id,
-                      )
-                    }
-                    onKeyDown={(event) => handleKeyDown(event, index)}
+                    onClick={() => toggleItem(item.id)}
+                    onKeyDown={(event) => handleKeyDown(event, index, item.id)}
                     className="flex min-h-16 w-full items-center justify-between gap-5 px-5 py-5 text-left text-base font-semibold leading-6 text-[#084038] transition hover:bg-[#f7f9f7] focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#084038] sm:px-6 sm:text-lg"
                   >
                     <span>{item.question}</span>
