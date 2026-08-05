@@ -5,6 +5,11 @@ type Tariff = {
   description?: string;
   price?: string;
   badge?: string;
+  examples?: readonly {
+    label: string;
+    total: string;
+    formula: string;
+  }[];
 };
 
 const tariffs: readonly Tariff[] = [
@@ -15,9 +20,10 @@ const tariffs: readonly Tariff[] = [
       "индивидуальное занятие",
       "автомобиль инструктора",
       "механическая коробка передач",
-      "подходит для подготовки к экзамену и отработки отдельных навыков",
+      "подготовка к экзамену",
+      "отработка отдельных навыков",
     ],
-    price: "Стоимость уточняйте у инструктора",
+    price: "2 500 ₽",
   },
   {
     id: "ninety-minutes",
@@ -25,10 +31,11 @@ const tariffs: readonly Tariff[] = [
     features: [
       "больше времени на практику",
       "экзаменационные маршруты",
-      "перекрёстки, перестроения и парковка",
+      "перекрёстки и перестроения",
+      "парковка и развороты",
       "индивидуальная программа занятия",
     ],
-    price: "Стоимость уточняйте у инструктора",
+    price: "3 000 ₽",
   },
   {
     id: "ten-lessons",
@@ -36,6 +43,18 @@ const tariffs: readonly Tariff[] = [
     description:
       "При единовременной оплате 10 и более занятий предоставляется скидка 15%.",
     badge: "−15%",
+    examples: [
+      {
+        label: "10 занятий по 1 часу",
+        total: "25 000 ₽ − 15% = 21 250 ₽",
+        formula: "25 000 × 0,85 = 21 250 ₽",
+      },
+      {
+        label: "10 занятий по 1,5 часа",
+        total: "30 000 ₽ − 15% = 25 500 ₽",
+        formula: "30 000 × 0,85 = 25 500 ₽",
+      },
+    ],
   },
 ];
 
@@ -58,8 +77,8 @@ export default function PricingSection() {
             Стоимость занятий
           </h2>
           <p className="mt-4 text-lg leading-8 text-black/68">
-            Выберите удобную продолжительность занятия. Итоговая стоимость
-            зависит от выбранного инструктора и формата обучения.
+            Выберите удобную продолжительность занятия. Оплата производится
+            после завершения занятия.
           </p>
         </div>
 
@@ -101,8 +120,33 @@ export default function PricingSection() {
                 </p>
               ) : null}
 
+              {tariff.examples ? (
+                <div className="mt-6 grid gap-3">
+                  {tariff.examples.map((example) => (
+                    <div
+                      key={example.label}
+                      className="rounded-2xl bg-[#F0F0F0] p-4"
+                    >
+                      <p className="text-sm font-semibold leading-5 text-[#084038]">
+                        {example.label}:
+                      </p>
+                      <p className="mt-1 text-base font-semibold leading-6 text-black/78">
+                        {example.total}
+                      </p>
+                    </div>
+                  ))}
+
+                  <div className="rounded-2xl border border-[#084038]/10 p-4 text-sm leading-6 text-black/68">
+                    <p className="font-semibold text-[#084038]">Расчёт:</p>
+                    {tariff.examples.map((example) => (
+                      <p key={example.formula}>{example.formula}</p>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               {tariff.price ? (
-                <p className="mt-auto border-t border-[#084038]/10 pt-7 text-lg font-semibold leading-7 text-[#084038]">
+                <p className="mt-auto border-t border-[#084038]/10 pt-7 text-2xl font-semibold leading-8 text-[#084038]">
                   {tariff.price}
                 </p>
               ) : null}
@@ -128,7 +172,8 @@ export default function PricingSection() {
           </div>
           <p className="text-base font-medium leading-7 text-white/92">
             Оплата производится после завершения каждого занятия. При покупке
-            пакета условия оплаты согласовываются с инструктором.
+            пакета условия оплаты и расписание заранее согласовываются с
+            инструктором.
           </p>
         </div>
       </div>
