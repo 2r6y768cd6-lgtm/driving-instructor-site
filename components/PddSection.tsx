@@ -24,15 +24,15 @@ export default function PddSection() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {pddSections.map((section, index) => (
+        <div className="mt-10 grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {pddSections.map((section) => (
             <article
               key={section.slug}
               className="group flex min-h-full flex-col rounded-[1.75rem] border border-[#084038]/10 bg-white p-6 shadow-[0_16px_45px_rgba(0,0,0,0.055)] transition duration-300 hover:-translate-y-1 hover:border-[#084038]/20 hover:shadow-[0_22px_60px_rgba(8,64,56,0.1)] motion-reduce:transform-none motion-reduce:transition-none"
             >
               <div className="flex items-start justify-between gap-4">
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-[#084038] text-xs font-bold tracking-[0.08em] text-white">
-                  {String(index + 1).padStart(2, "0")}
+                  {section.number}
                 </span>
                 <span className="rounded-full bg-[#e8f0eb] px-3 py-1.5 text-right text-xs font-semibold leading-4 text-[#084038]">
                   {section.reference}
@@ -46,35 +46,60 @@ export default function PddSection() {
                 {section.description}
               </p>
 
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                data-future-route={section.href}
-                className="mt-auto inline-flex min-h-11 w-fit cursor-not-allowed items-center rounded-full border border-[#084038]/15 px-5 pt-0.5 text-sm font-semibold text-[#084038]/60"
+              <a
+                href={section.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Изучить ${lowercaseFirst(section.reference)} на внешнем сайте PDD24`}
+                className="mt-auto inline-flex min-h-11 w-fit items-center gap-2 rounded-full border border-[#084038]/15 px-5 pt-0.5 text-sm font-semibold text-[#084038] transition hover:border-[#084038]/35 hover:bg-[#e8f0eb] focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 motion-reduce:transition-none"
               >
                 Изучить
-              </button>
+                <ExternalLinkIcon />
+              </a>
             </article>
           ))}
         </div>
 
         <div className="mt-8 flex flex-col gap-4 rounded-[1.75rem] border border-[#084038]/10 bg-white p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            data-future-route="/pdd"
-            className="inline-flex min-h-13 cursor-not-allowed items-center justify-center rounded-full bg-[#084038] px-7 text-sm font-bold text-white opacity-75 sm:shrink-0"
+          <a
+            href="https://pdd24.com/pdd"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Открыть справочник ПДД на внешнем сайте PDD24"
+            className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#084038] px-7 text-sm font-bold text-white transition hover:bg-[#0a5147] focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 motion-reduce:transition-none sm:shrink-0"
           >
             Открыть справочник ПДД
-          </button>
+            <ExternalLinkIcon />
+          </a>
           <p className="text-sm leading-6 text-black/60 sm:max-w-2xl">
-            Материалы носят справочный характер. Перед применением необходимо
-            сверяться с актуальной официальной редакцией ПДД РФ.
+            Ссылки ведут на внешний справочный ресурс PDD24. Перед применением
+            информации рекомендуется сверяться с актуальной официальной
+            редакцией ПДД РФ.
           </p>
         </div>
       </div>
     </section>
   );
+}
+
+function ExternalLinkIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      className="size-4 shrink-0"
+    >
+      <path d="M8 5H5.75A1.75 1.75 0 0 0 4 6.75v7.5A1.75 1.75 0 0 0 5.75 16h7.5A1.75 1.75 0 0 0 15 14.25V12" />
+      <path d="M11 4h5v5M16 4l-7 7" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function lowercaseFirst(value: string) {
+  return value
+    ? `${value.charAt(0).toLocaleLowerCase("ru-RU")}${value.slice(1)}`
+    : value;
 }
