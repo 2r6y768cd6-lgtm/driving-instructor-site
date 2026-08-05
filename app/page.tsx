@@ -12,6 +12,7 @@ import PddSection from "@/components/PddSection";
 import FaqSection from "@/components/FaqSection";
 
 const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/yveren.png?v=6";
+const LOGO_IMAGE_SRC = "/images/logotip.png";
 const SITE_URL = "https://www.selsdal.ru";
 
 const drivingSchoolSchema = {
@@ -79,9 +80,18 @@ export default function Home() {
         className="flex min-h-[60svh] items-center justify-center bg-[#F0F0F0] px-5 py-20 text-center sm:min-h-[68svh] sm:px-8 lg:min-h-[70svh] lg:px-12"
       >
         <div className="mx-auto max-w-5xl">
-          <h1 className="text-[clamp(4rem,12vw,6rem)] font-bold leading-[0.92] tracking-normal text-black">
-            Сел - сдал
-          </h1>
+          <h1 className="sr-only">Сел — сдал</h1>
+          <div className="relative mx-auto aspect-[5/4] w-[min(88vw,470px)] overflow-hidden">
+            <Image
+              src={LOGO_IMAGE_SRC}
+              alt=""
+              aria-hidden="true"
+              fill
+              priority
+              sizes="(min-width: 640px) 470px, 88vw"
+              className="scale-110 object-cover"
+            />
+          </div>
           <div className="mt-7 flex justify-center">
             {hasHeroSubtitleImage ? (
               <Image
