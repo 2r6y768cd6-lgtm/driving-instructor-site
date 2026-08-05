@@ -81,14 +81,14 @@ export default function Home() {
       >
         <div className="mx-auto max-w-5xl">
           <h1 className="sr-only">Сел — сдал</h1>
-          <div className="relative mx-auto aspect-[5/4] w-[min(88vw,470px)] overflow-hidden">
+          <div className="relative mx-auto aspect-[5/4] w-[min(96vw,564px)] overflow-hidden">
             <Image
               src={LOGO_IMAGE_SRC}
               alt=""
               aria-hidden="true"
               fill
               priority
-              sizes="(min-width: 640px) 470px, 88vw"
+              sizes="(min-width: 640px) 564px, 96vw"
               className="scale-110 object-cover"
             />
           </div>
