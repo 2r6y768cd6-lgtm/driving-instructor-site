@@ -6,6 +6,10 @@ import ScrollCarSection from "@/components/ScrollCarSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import LocationSection from "@/components/LocationSection";
 import GallerySection from "@/components/GallerySection";
+import PricingSection from "@/components/PricingSection";
+import ExamRoutesSection from "@/components/ExamRoutesSection";
+import PddSection from "@/components/PddSection";
+import FaqSection from "@/components/FaqSection";
 
 const HERO_SUBTITLE_IMAGE_SRC = "/images/ui/yveren.png?v=6";
 const SITE_URL = "https://www.selsdal.ru";
@@ -99,6 +103,10 @@ export default function Home() {
       </section>
 
       <ScrollCarSection />
+      <PricingSection />
+      <ExamRoutesSection />
+      <PddSection />
+      <FaqSection />
       <ReviewsSection />
       <LocationSection />
       <GallerySection />
