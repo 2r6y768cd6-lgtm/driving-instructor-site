@@ -8,8 +8,8 @@ import PricingSection from "@/components/PricingSection";
 import ExamRoutesSection from "@/components/ExamRoutesSection";
 import PddSection from "@/components/PddSection";
 import FaqSection from "@/components/FaqSection";
+import heroImage from "@/public/images/ui/logotip_yveren.png";
 
-const HERO_IMAGE_SRC = "/images/ui/logotip_yveren.png";
 const SITE_URL = "https://www.selsdal.ru";
 
 const drivingSchoolSchema = {
@@ -78,7 +78,7 @@ export default function Home() {
           <h1 className="sr-only">Сел — сдал</h1>
           <div className="relative mx-auto aspect-[11/10] w-[min(96vw,700px)] overflow-hidden">
             <Image
-              src={HERO_IMAGE_SRC}
+              src={heroImage}
               alt="Сел — сдал. Автоинструктор в Набережных Челнах. Уверенно идём на экзамен"
               fill
               priority
