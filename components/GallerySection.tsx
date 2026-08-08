@@ -69,6 +69,18 @@ const galleryImages: GalleryImage[] = [
     alt: "Занятие в учебном автомобиле на автодроме",
     className: "basis-[74%] sm:basis-[46%] lg:basis-[35%] aspect-[3/4]",
   },
+  {
+    id: "gallery-11",
+    src: "/images/gallery/gallery-11.webp",
+    alt: "Ученица с водительским удостоверением после успешной сдачи экзамена",
+    className: "basis-[74%] sm:basis-[46%] lg:basis-[35%] aspect-[3/4]",
+  },
+  {
+    id: "gallery-12",
+    src: "/images/gallery/gallery-12.webp",
+    alt: "Ученик с водительским удостоверением после успешной сдачи экзамена",
+    className: "basis-[88%] sm:basis-[72%] lg:basis-[62%] aspect-[4/3]",
+  },
 ];
 
 export default function GallerySection() {
