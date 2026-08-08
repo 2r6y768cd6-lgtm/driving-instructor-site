@@ -64,6 +64,18 @@ const galleryImages: GalleryImage[] = [
     className: "basis-[74%] sm:basis-[46%] lg:basis-[35%] aspect-[3/4]",
     imageClassName: "object-right",
   },
+  {
+    id: "gallery-9",
+    src: "/images/gallery/gallery-9.webp",
+    alt: "Два учебных автомобиля на площадке для занятий",
+    className: "basis-[88%] sm:basis-[72%] lg:basis-[62%] aspect-[4/3]",
+  },
+  {
+    id: "gallery-10",
+    src: "/images/gallery/gallery-10.webp",
+    alt: "Занятие в учебном автомобиле на автодроме",
+    className: "basis-[74%] sm:basis-[46%] lg:basis-[35%] aspect-[3/4]",
+  },
 ];
 
 export default function GallerySection() {
