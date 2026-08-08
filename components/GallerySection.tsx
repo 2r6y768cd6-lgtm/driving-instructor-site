@@ -15,13 +15,6 @@ type GalleryImage = {
 // и добавьте его в этот массив.
 const galleryImages: GalleryImage[] = [
   {
-    id: "gallery-1",
-    src: "/images/gallery/gallery-1.jpg",
-    alt: "Учебный автомобиль выполняет упражнение на автодроме",
-    className: "basis-[74%] sm:basis-[46%] lg:basis-[35%] aspect-[3/4]",
-    imageClassName: "object-center",
-  },
-  {
     id: "gallery-2",
     src: "/images/gallery/gallery-2.PNG",
     alt: "Два учебных автомобиля на площадке",

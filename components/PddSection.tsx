@@ -66,7 +66,7 @@ export default function PddSection() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Открыть справочник ПДД на внешнем сайте PDD24"
-            className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#084038] px-7 text-sm font-bold text-white transition hover:bg-[#0a5147] focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 motion-reduce:transition-none sm:shrink-0"
+            className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#084038] px-7 text-sm font-bold !text-white transition visited:!text-white hover:bg-[#0a5147] hover:!text-white focus:!text-white focus:outline-none focus:ring-2 focus:ring-[#084038] focus:ring-offset-2 active:!text-white motion-reduce:transition-none sm:shrink-0"
           >
             Открыть справочник ПДД
             <ExternalLinkIcon />
