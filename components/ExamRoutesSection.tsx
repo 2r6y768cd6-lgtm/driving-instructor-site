@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Image from "next/image";
 
-const ROUTES_IMAGE_SRC = "/images/routes/exam-routes.png";
+const ROUTES_IMAGE_SRC = "/images/route.webp";
 
 const routeTopics = [
   "сложные перекрёстки",
@@ -49,7 +49,7 @@ export default function ExamRoutesSection() {
                 alt="Карта экзаменационных маршрутов ГАИ в Набережных Челнах"
                 fill
                 sizes="(min-width: 1024px) 58vw, 100vw"
-                className="object-cover"
+                className="object-contain"
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center overflow-hidden px-6 text-center">
